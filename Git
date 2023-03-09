@@ -1,0 +1,15 @@
+// criar um repositório local git 
+git init 
+
+//adicionar usuário e e-mail na variável global do git
+git config --global usa.name "seu nome"
+git config --global user.email "seu email"
+
+//adicionar arquivo para commit
+git add . //pega todos os arquivos
+git add arquivo.php // adicionasó o arquivo especificado 
+
+// realizar commit
+git commit -m "mensagem"
+
+// ASDASDASDASD
