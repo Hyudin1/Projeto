@@ -17,17 +17,19 @@ if ($n1 <= 10) {
             // valida quarta nota
             if ($n4 <= 10) {
                 $média = ($n1 + $n2 + $n3 + $n4)/4;
-                echo "[MENOR] A média do aluno é: {$média}<br/>";
+                echo "[MAIOR] A média do aluno é: {$média}<br/>";
             }
         }
     }
     
 }
-
+//condição utilizando operadores relacionais e lógicos
 if ($n1 <= 10 AND $n2 <= 10 AND $n3 <= 10 AND $n4 <= 10) {
     $média = ($n1 + $n2 + $n3 + $n4)/4;
-                echo " [MAIOR]A média do aluno é: {$média}";
+                echo " [MENOR]A média do aluno é: {$média}";
     
+}else {
+    echo "operadores não realizada! Nota inválida";
 }
-
+ 
 ?>
