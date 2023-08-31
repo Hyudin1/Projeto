@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -7,20 +10,34 @@
     <title>Tela de Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
-<body class="bg-info">
-    <div class="container text-center">
+<body>
+    <nav class="navbar bg-info">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.php"><img src="..\Recursos\Premier2.png" alt="" width="150px"></a>
+        </div>
+    </nav> 
+    <div class="container mt-4 text-center">
         <div class= "mt-5 mb-3">
-            <img src="Recursos\premier-league-5.png" alt="" width= "200px" >
+            <img src="Recursos\Premier2.png" alt="" width= "300px" >
         </div>
 
         <div>
             <h3>Tela de Login</h3>
+
+            <?php
+                if (!empty($_SESSION['ok'])) {
+                    echo $_SESSION['ok'];
+                    unset($_SESSION['ok']);
+                }
+            ?>
             <form action="" method="post">
+    
+
                 <label class="form-label  for="usuario>Usuário</label>
-                <input class="form-control" type="email" name="user" id="usuario">
+                <input class="form-control" type="email" name="user" id="usuario" placeholder="Nome do usuário" required>
 
                 <label class="form-label" for="pass">Senha</label>
-                <input class="form-control" type="password" name="senha" id="pass"><br>
+                <input class="form-control" type="password" name="senha" id="pass" placeholder="Senha" required><br>
 
                 <input class="btn btn-primary btn-lg" type="submit" value="Logar">
                 <a class="btn btn-danger btn-lg" href="Web/cadastrar.php">Cadastrar</a>
