@@ -7,6 +7,15 @@ if (empty($_SESSION['usuario'])) {
     echo "<meta http-equiv= 'refresh' content='0; URL=../index.php'/>";
 }
 
+$pdo = new PDO("mysql:host=localhost;dbname=exemplo","root","");
+$sql = $pdo->prepare("SELECT id, nome, email FROM `usuarios`");
+$sql->execute(array());
+$info = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+echo "<pre>";
+print_r($info);
+echo "<pre>";
+
 ?>
 
 <!DOCTYPE html>
@@ -22,14 +31,38 @@ if (empty($_SESSION['usuario'])) {
     <!-- CABEÇALHO DO SITE -->
     <nav class="navbar bg-info">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.php"><img src="..\Recursos/Premier2.png" alt="" width="100px"></a>
+            <a class="navbar-brand" href="index.php"><img src="..\Recursos/Premier2.png" alt="" width="80px"></a>
             <a class = "btn btn-dark"href="logout.php">Sair</a>
            
         </div>
     </nav>
 <div class="container text-center">
-    <h2>Menu de opções</h2>
-    <a class="btn btn-lg btn-success" href="http://localhost/teste%202/Sistemas/Web/listar.php">Listar Usuários</a>
+    <h2>Lista de usuários</h2>
+    <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+        <?php
+            foreach ($info as $key => $value) {
+                echo "<tr>";
+                    echo "<th scope='row'>".$info[$key]['id']."</th>";
+                    echo "<td>.$info[$key]['nome'].</td>";
+                    echo"<td>.$info[$key]['email'].</td>";
+                    echo"<td>@mdo</td>";
+                echo "</tr>";
+        }
+    ?>
+   
+        
+  </tbody>
+</table>
+    
 
 </div>
 
